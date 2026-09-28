@@ -1,11 +1,29 @@
-spring:
-  application:
-    name: user-service
+server:
+  port: 5001
+
 jwt:
   secret: f7e2c9a14b8d3f6e0a5c8b2d9e4f1a7c3b6d8e0f2a4c6b8d0e2f4a6c8b0d2e4f
   issuer: IncidentApp
   audience: IncidentApp
   expiration-days: 7
 
-server:
-  port: 5001
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/incidentdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+
